@@ -1,0 +1,169 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "generated": 1791604800000,
+  "title": "Sample USGS response for tests"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "id": "us7000r1d4",
+   "properties": {
+    "mag": 5.0,
+    "place": "Central Mid-Atlantic Ridge",
+    "time": 1791295375000,
+    "updated": 1791540000000,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000r1d4",
+    "felt": null,
+    "cdi": null,
+    "mmi": null,
+    "alert": null,
+    "status": "reviewed",
+    "tsunami": 0,
+    "sig": 300,
+    "net": "us",
+    "code": "7000r1d4",
+    "magType": "mww",
+    "type": "earthquake",
+    "title": "M 5.0 - Central Mid-Atlantic Ridge"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -29.84,
+     0.92,
+     10.0
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "hv74512345",
+   "properties": {
+    "mag": 2.7,
+    "place": "5 km S of Volcano, Hawaii",
+    "time": 1791364540000,
+    "updated": 1791543600000,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv74512345",
+    "felt": null,
+    "cdi": null,
+    "mmi": null,
+    "alert": null,
+    "status": "reviewed",
+    "tsunami": 0,
+    "sig": 162,
+    "net": "hv",
+    "code": "74512345",
+    "magType": "md",
+    "type": "earthquake",
+    "title": "M 2.7 - 5 km S of Volcano, Hawaii"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -155.23,
+     19.38,
+     2.1
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "nc75012345",
+   "properties": {
+    "mag": 2.9,
+    "place": "10 km SW of Tres Pinos, CA",
+    "time": 1791055330000,
+    "updated": 1791061200000,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75012345",
+    "felt": 12,
+    "cdi": null,
+    "mmi": null,
+    "alert": null,
+    "status": "reviewed",
+    "tsunami": 0,
+    "sig": 174,
+    "net": "nc",
+    "code": "75012345",
+    "magType": "md",
+    "type": "earthquake",
+    "title": "M 2.9 - 10 km SW of Tres Pinos, CA"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.38,
+     36.73,
+     7.1
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "us7000r2f6",
+   "properties": {
+    "mag": 4.4,
+    "place": "23 km N of Tobruk, Libya",
+    "time": 1791564242000,
+    "updated": 1791568800000,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000r2f6",
+    "felt": null,
+    "cdi": null,
+    "mmi": null,
+    "alert": null,
+    "status": "reviewed",
+    "tsunami": 0,
+    "sig": 264,
+    "net": "us",
+    "code": "7000r2f6",
+    "magType": "mb",
+    "type": "earthquake",
+    "title": "M 4.4 - 23 km N of Tobruk, Libya"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     23.95,
+     32.29,
+     10.0
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "us7000r2g7",
+   "properties": {
+    "mag": 5.7,
+    "place": "Off the coast of Central Chile",
+    "time": 1791598319000,
+    "updated": 1791601200000,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000r2g7",
+    "felt": null,
+    "cdi": null,
+    "mmi": null,
+    "alert": null,
+    "status": "reviewed",
+    "tsunami": 0,
+    "sig": 500,
+    "net": "us",
+    "code": "7000r2g7",
+    "magType": "mww",
+    "type": "earthquake",
+    "title": "M 5.7 - Off the coast of Central Chile"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -72.31,
+     -35.41,
+     24.6
+    ]
+   }
+  }
+ ]
+}

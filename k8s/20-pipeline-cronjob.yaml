@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quake-pipeline-config
+  namespace: quake
+data:
+  MIN_MAGNITUDE: "2.5"
+  BACKFILL_DAYS: "30"
+---
+# Kubernetes runs the pipeline on a schedule; each run is a short-lived pod.
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: quake-pipeline
+  namespace: quake
+spec:
+  schedule: "*/15 * * * *"
+  concurrencyPolicy: Forbid        # never two runs at once
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 2              # retry a failed run twice
+      activeDeadlineSeconds: 600
+      template:
+        spec:
+          restartPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+          containers:
+            - name: pipeline
+              image: quake-pipeline:latest
+              imagePullPolicy: IfNotPresent
+              args: ["run"]
+              envFrom:
+                - configMapRef:
+                    name: quake-pipeline-config
+              env:
+                - name: DATABASE_URL
+                  valueFrom:
+                    secretKeyRef: {name: quake-db, key: DATABASE_URL}
+              resources:
+                requests: {cpu: 50m, memory: 128Mi}
+                limits: {cpu: 500m, memory: 256Mi}
