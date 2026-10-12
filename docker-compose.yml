@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-quake}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-quake}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      # Bound to localhost only: reachable from this machine, never the internet.
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  pipeline:
+    build: .
+    image: quake-pipeline:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-quake}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-quake}
+      MIN_MAGNITUDE: ${MIN_MAGNITUDE:-2.5}
+      BACKFILL_DAYS: ${BACKFILL_DAYS:-30}
+      INTERVAL_MINUTES: ${INTERVAL_MINUTES:-15}
+    command: ["run", "--loop"]
+
+volumes:
+  pgdata:
